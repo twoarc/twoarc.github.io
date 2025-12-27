@@ -190,7 +190,7 @@ export default function About() {
       </section>
 
       {/* CONTACT */}
-      <ContactSection id="contact" companyName="2Arc" email="business@twoarc.studio" />
+      <ContactSection id="contact" companyName="2Arc" email="twoarc@proton.me" />
     </div>
   );
 }

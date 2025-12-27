@@ -13,15 +13,24 @@ export default function Navbar() {
   const location = useLocation();
 
   const goContactSection = () => {
-    // Aynı sayfadaysak direkt scroll
-    const el = document.getElementById("contact");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-      return;
+    let targetId = "contact"; // Varsayılan ID (About ve Apps için)
+
+    // Eğer Ana Sayfadaysak ID 'home-contact' olmalı
+    if (location.pathname === "/") {
+      targetId = "home-contact";
     }
 
-    // Değilsek: mevcut path + #contact
-    navigate(`${location.pathname}#contact`);
+    // İlgili elementi sayfada bulmaya çalış
+    const el = document.getElementById(targetId);
+
+    if (el) {
+      // Element varsa oraya kaydır
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Güvenlik önlemi: Eğer element bulunamazsa (örn: farklı bir sayfadaysanız)
+      // Ana sayfadaki contact'a yönlendir.
+      navigate("/#home-contact");
+    }
   };
 
   return (
@@ -32,7 +41,6 @@ export default function Navbar() {
           <img
             src={logo}
             alt="2Arc Logo"
-            // ✅ GÜNCELLEME: mt-2 ve md:mt-4 ekleyerek logoyu aşağı ittirdik
             className="h-28 md:h-40 w-auto mt-2 md:mt-4"
           />
         </Link>
@@ -51,7 +59,7 @@ export default function Navbar() {
             type="button"
             onClick={goContactSection}
             className="px-2 py-1 text-sm md:text-base font-extrabold uppercase
-                        text-slate-800 hover:text-indigo-600 transition-colors"
+                        text-slate-800 hover:text-indigo-600 transition-colors cursor-pointer"
           >
             Contact
           </button>

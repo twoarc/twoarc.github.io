@@ -206,7 +206,7 @@ export default function Home() {
         </div>
       </section>
 
-      <ContactSection id="home-contact" companyName="2Arc" email="business@2arc.co" />
+      <ContactSection id="home-contact" companyName="2Arc" email="twoarc@proton.me" />
     </div>
   );
 }

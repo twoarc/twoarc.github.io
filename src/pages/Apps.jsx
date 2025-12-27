@@ -123,7 +123,7 @@ export default function Apps() {
       </section>
 
       {/* CONTACT */}
-      <ContactSection id="contact" companyName="2Arc" email="business@2arc.co" />
+      <ContactSection id="contact" companyName="2Arc" email="twoarc@proton.me" />
     </div>
   );
 }
