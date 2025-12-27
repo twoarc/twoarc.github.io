@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/f
 export default function ContactSection({
   id = "contact",
   companyName = "2Arc",
-  email = "business@2arc.co",
+  email = "twoarc@proton.me",
   socials = {
     facebook: "https://facebook.com/",
     instagram: "https://instagram.com/",
