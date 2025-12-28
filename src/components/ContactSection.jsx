@@ -14,13 +14,13 @@ export default function ContactSection({
   onSubmit,
 }) {
   const year = new Date().getFullYear();
-  const formRef = useRef(null); // ✅ form ref
+  const formRef = useRef(null);
 
   return (
     <section id={id} className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
       <div className="grid md:grid-cols-2 gap-12 items-start">
-        {/* left info + socials */}
-        <div className="pt-4">
+        {/* ✅ Mobilde altta, md+’da solda (PC aynı) */}
+        <div className="pt-4 order-2 md:order-1">
           <p className="text-slate-700 text-sm">
             Copyright © {year} {companyName} | All rights reserved.
           </p>
@@ -33,8 +33,8 @@ export default function ContactSection({
           </div>
         </div>
 
-        {/* right form */}
-        <div>
+        {/* ✅ Mobilde üstte, md+’da sağda (PC aynı) */}
+        <div className="order-1 md:order-2">
           <h3 className="text-4xl font-black text-slate-900 text-center md:text-left">
             Contact Us
           </h3>
@@ -51,18 +51,15 @@ export default function ContactSection({
           </p>
 
           <form
-            ref={formRef} // ✅ bağladık
+            ref={formRef}
             className="mt-10 space-y-5"
             onSubmit={(e) => {
               e.preventDefault();
 
-              if (onSubmit) {
-                onSubmit(e);
-              } else {
-                alert("✅ You successfully submitted your message");
-              }
+              if (onSubmit) onSubmit(e);
+              else alert("✅ You successfully submitted your message");
 
-              formRef.current?.reset(); // ✅ FORM TEMİZLENİR
+              formRef.current?.reset();
             }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -93,7 +90,7 @@ export default function ContactSection({
 
             <button
               type="submit"
-              className="px-10 py-4 rounded-lg bg-blue-600 text-white font-extrabold hover:bg-blue-700 transition"
+              className="w-full sm:w-auto px-10 py-4 rounded-lg bg-blue-600 text-white font-extrabold hover:bg-blue-700 transition"
             >
               Send Message
             </button>
