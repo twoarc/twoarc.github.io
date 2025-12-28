@@ -66,7 +66,6 @@ export default function Apps() {
   // HERO text reveal
   const [heroTextRef, heroTextVisible] = useRevealOnScroll({ threshold: 0.2 });
 
-  // ✅ About ile tıpatıp aynı boyut
   // About: mobile 500px, desktop 700px
   const HERO_H_MOBILE = 500;
   const HERO_H_DESKTOP = 700;
@@ -75,7 +74,7 @@ export default function Apps() {
     <div>
       {/* HERO (About ile aynı boyut) */}
       <section
-        className={`relative overflow-hidden border-b border-slate-200 md:h-[${HERO_H_DESKTOP}px]`}
+        className="relative overflow-hidden border-b border-slate-200 md:h-[700px]"
         style={{ height: `${HERO_H_MOBILE}px` }}
       >
         <img
@@ -87,13 +86,15 @@ export default function Apps() {
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/15 via-fuchsia-500/10 to-emerald-400/10" />
 
-        {/* ✅ METİN BLOĞU: Gerçek ekranın SOL-ALT'ına sabit (container'a bağlı değil) */}
+        {/* METİN BLOĞU */}
         <div
           ref={heroTextRef}
           className={[
             "absolute left-6 md:left-16 bottom-14 md:bottom-24",
             "transition-all duration-700 ease-out will-change-transform",
-            heroTextVisible ? "translate-x-0 opacity-100" : "-translate-x-64 opacity-0",
+            heroTextVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-6 opacity-0 md:-translate-x-64",
           ].join(" ")}
         >
           <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white">
@@ -128,6 +129,7 @@ export default function Apps() {
 
 /**
  * App card: resim soldan, yazı sağdan gelsin (Home’daki gibi)
+ * ✅ Mobil düzgün, ✅ Desktop tıpatıp aynı
  */
 function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
   const [rowRef, rowVisible] = useRevealOnScroll({ threshold: 0.2 });
@@ -140,14 +142,16 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           className={[
             "flex justify-center",
             "transition-all duration-1200 ease-out will-change-transform",
-            rowVisible ? "translate-x-0 opacity-100" : "-translate-x-64 opacity-0",
+            rowVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-6 opacity-0 md:-translate-x-64",
           ].join(" ")}
         >
-          <div className="rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
+          <div className="rounded-[72px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
             <img
               src={app.image}
               alt={app.name}
-              className="w-[420px] max-w-full object-cover block"
+              className="w-full max-w-[260px] sm:max-w-[320px] md:w-[420px] md:max-w-full object-cover block"
             />
           </div>
         </div>
@@ -156,23 +160,31 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
         <div
           className={[
             "transition-all duration-1200 ease-out delay-200 will-change-transform",
-            rowVisible ? "translate-x-0 opacity-100" : "translate-x-64 opacity-0",
+            rowVisible
+              ? "translate-x-0 opacity-100"
+              : "translate-x-6 opacity-0 md:translate-x-64",
           ].join(" ")}
         >
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900">
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight text-slate-900">
             {app.name}
           </h2>
 
-          <p className="mt-4 text-slate-600 leading-relaxed">{app.desc}</p>
+          <p className="mt-3 md:mt-4 text-sm md:text-base text-slate-600 leading-relaxed">
+            {app.desc}
+          </p>
 
-          <div className="mt-8 flex gap-5 flex-wrap items-center">
+          <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
             <a
               href={app.googlePlayUrl}
               target="_blank"
               rel="noreferrer"
               className="transition-transform hover:scale-105"
             >
-              <img src={googlePlayBadge} alt="Get it on Google Play" className="h-16" />
+              <img
+                src={googlePlayBadge}
+                alt="Get it on Google Play"
+                className="h-12 md:h-16"
+              />
             </a>
 
             <a
@@ -181,7 +193,11 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
               rel="noreferrer"
               className="transition-transform hover:scale-105"
             >
-              <img src={appStoreBadge} alt="Download on the App Store" className="h-16" />
+              <img
+                src={appStoreBadge}
+                alt="Download on the App Store"
+                className="h-12 md:h-16"
+              />
             </a>
           </div>
         </div>
