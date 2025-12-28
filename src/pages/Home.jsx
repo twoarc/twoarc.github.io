@@ -50,25 +50,30 @@ export default function Home() {
   const [appsRef, appsVisible] = useRevealOnScroll({ threshold: 0.25 });
   const [aboutRef, aboutVisible] = useRevealOnScroll({ threshold: 0.25 });
 
-  const NAVBAR_PX = 80;
-
   return (
     <div className="bg-white">
       {/* HERO */}
       <section
-        className="relative overflow-hidden border-b border-slate-200"
-        style={{ height: `calc(100vh - ${NAVBAR_PX}px)` }}
+        className="
+          relative overflow-hidden border-b border-slate-200
+          h-[70vh] md:h-[calc(100vh-80px)]
+        "
       >
         <img
           src={heroImg}
           alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover brightness-100 contrast-100 saturate-120"
+          className="
+            absolute inset-0 w-full h-full
+            object-cover
+            object-[60%_center] md:object-center
+            brightness-100 contrast-100 saturate-120
+          "
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
 
-        {/* ✅ Mobil: daha kompakt + sığan metin | ✅ Desktop: aynı */}
-        <div className="absolute inset-x-0 bottom-0 px-4 pb-6 md:left-0 md:inset-x-auto md:px-16 md:pb-16 max-w-xl md:max-w-xl">
+        {/* TEXT */}
+        <div className="absolute inset-x-0 bottom-0 px-4 pb-6 md:left-0 md:inset-x-auto md:px-16 md:pb-16 max-w-xl">
           <div className="mx-auto max-w-[520px] md:mx-0">
             <h1 className="text-white text-3xl leading-tight md:text-6xl md:leading-none font-black">
               We build fun
@@ -80,7 +85,7 @@ export default function Home() {
               sharing, and everyday fun.
             </p>
 
-            <div className="mt-4 flex flex-col sm:flex-row gap-3 md:mt-5 md:flex-wrap">
+            <div className="mt-4 flex flex-col sm:flex-row gap-3 md:mt-5">
               <Link
                 to="/apps"
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition text-center"
@@ -114,7 +119,6 @@ export default function Home() {
                 : "-translate-x-6 opacity-0 md:-translate-x-64",
             ].join(" ")}
           >
-            {/* ✅ Mobilde daha küçük max width | ✅ Desktop aynı 420px */}
             <div className="w-full max-w-[260px] sm:max-w-[320px] md:w-[420px] md:max-w-full rounded-[64px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
               <img src={appsImg} alt="Apps showcase" className="w-full h-auto block" />
             </div>
@@ -128,7 +132,6 @@ export default function Home() {
                 : "translate-x-6 opacity-0 md:translate-x-64",
             ].join(" ")}
           >
-            {/* ✅ Mobil font küçüldü | ✅ Desktop aynı */}
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
               First app is on the way
             </h2>
@@ -142,7 +145,7 @@ export default function Home() {
               interactions, and replayability. We ship, learn fast, and improve with every update.
             </p>
 
-            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 flex-wrap">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3">
               <Link
                 to="/apps"
                 className="w-full sm:w-auto px-7 py-4 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition text-center"
@@ -188,7 +191,7 @@ export default function Home() {
                 unique experiences.
               </p>
 
-              <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 flex-wrap">
+              <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3">
                 <Link
                   to="/about"
                   className="w-full sm:w-auto px-7 py-4 rounded-xl bg-indigo-600 text-white font-extrabold hover:bg-indigo-700 transition text-center"
