@@ -18,9 +18,10 @@ export default function ContactSection({
 
   return (
     <section id={id} className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
-      <div className="grid md:grid-cols-2 gap-12 items-start">
-        {/* ✅ Mobilde altta, md+’da solda (PC aynı) */}
-        <div className="pt-4 order-2 md:order-1">
+      {/* ✅ Mobil: column-reverse (info kesin altta) | ✅ Desktop: grid (PC aynı) */}
+      <div className="flex flex-col-reverse gap-12 items-start md:grid md:grid-cols-2 md:gap-12">
+        {/* INFO + SOCIALS (mobilde altta, desktop solda) */}
+        <div className="pt-4">
           <p className="text-slate-700 text-sm">
             Copyright © {year} {companyName} | All rights reserved.
           </p>
@@ -33,8 +34,8 @@ export default function ContactSection({
           </div>
         </div>
 
-        {/* ✅ Mobilde üstte, md+’da sağda (PC aynı) */}
-        <div className="order-1 md:order-2">
+        {/* FORM (mobilde üstte, desktop sağda) */}
+        <div>
           <h3 className="text-4xl font-black text-slate-900 text-center md:text-left">
             Contact Us
           </h3>
