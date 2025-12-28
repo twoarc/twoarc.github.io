@@ -67,46 +67,55 @@ export default function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
 
-        <div className="absolute left-0 bottom-0 px-4 pb-8 md:px-16 md:pb-16 max-w-xl">
-          <h1 className="text-white text-4xl md:text-6xl font-black">
-            We build fun
-            <span className="block">mobile experiences.</span>
-          </h1>
+        {/* ✅ Mobil: daha kompakt + sığan metin | ✅ Desktop: aynı */}
+        <div className="absolute inset-x-0 bottom-0 px-4 pb-6 md:left-0 md:inset-x-auto md:px-16 md:pb-16 max-w-xl md:max-w-xl">
+          <div className="mx-auto max-w-[520px] md:mx-0">
+            <h1 className="text-white text-3xl leading-tight md:text-6xl md:leading-none font-black">
+              We build fun
+              <span className="block">mobile apps.</span>
+            </h1>
 
-          <p className="mt-4 text-white/85 text-base md:text-lg">
-            Entertainment-first apps built for sharing, quick sessions and daily engagement.
-          </p>
+            <p className="mt-3 text-white/85 text-sm leading-relaxed md:mt-4 md:text-lg">
+              We’re a two-person studio creating entertainment-first apps made for quick sessions,
+              sharing, and everyday fun.
+            </p>
 
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link
-              to="/apps"
-              className="px-6 py-3 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition"
-            >
-              OUR APPS
-            </Link>
+            <div className="mt-4 flex flex-col sm:flex-row gap-3 md:mt-5 md:flex-wrap">
+              <Link
+                to="/apps"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition text-center"
+              >
+                OUR APPS
+              </Link>
 
-            <button
-              onClick={scrollToHomeContact}
-              className="px-6 py-3 rounded-xl border border-white/30 text-white font-extrabold hover:bg-white/10 transition"
-            >
-              CONTACT
-            </button>
+              <button
+                onClick={scrollToHomeContact}
+                className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/30 text-white font-extrabold hover:bg-white/10 transition"
+              >
+                CONTACT
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* OUR APPS */}
-      <section ref={appsRef} className="max-w-6xl mx-auto px-4 py-20 overflow-hidden">
+      <section
+        ref={appsRef}
+        className="max-w-6xl mx-auto px-4 py-14 md:py-20 overflow-hidden"
+      >
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div
             className={[
               "flex justify-center",
               "transition-all duration-1200 ease-out will-change-transform",
-              appsVisible ? "translate-x-0 opacity-100" : "-translate-x-64 opacity-0",
+              appsVisible
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-6 opacity-0 md:-translate-x-64",
             ].join(" ")}
           >
-            {/* ✅ Küçülttüm: w-6xl -> w-[420px] (istersen 380/360 da yaparız) */}
-            <div className="w-[420px] max-w-full rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
+            {/* ✅ Mobilde daha küçük max width | ✅ Desktop aynı 420px */}
+            <div className="w-full max-w-[260px] sm:max-w-[320px] md:w-[420px] md:max-w-full rounded-[64px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
               <img src={appsImg} alt="Apps showcase" className="w-full h-auto block" />
             </div>
           </div>
@@ -114,33 +123,36 @@ export default function Home() {
           <div
             className={[
               "transition-all duration-1200 ease-out delay-200 will-change-transform",
-              appsVisible ? "translate-x-0 opacity-100" : "translate-x-64 opacity-0",
+              appsVisible
+                ? "translate-x-0 opacity-100"
+                : "translate-x-6 opacity-0 md:translate-x-64",
             ].join(" ")}
           >
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900">
-              We reach all over the globe
+            {/* ✅ Mobil font küçüldü | ✅ Desktop aynı */}
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
+              First app is on the way
             </h2>
 
-            <p className="mt-4 text-xl md:text-2xl text-orange-600 font-black">
-              Our apps have been played by +40M users.
+            <p className="mt-3 text-lg md:mt-4 md:text-2xl text-orange-600 font-black">
+              We’re getting ready for our first release.
             </p>
 
-            <p className="mt-5 text-slate-600 leading-relaxed">
-              We build new worlds that players can explore, interact and enjoy. We value our
-              community and keep bringing new experiences.
+            <p className="mt-4 md:mt-5 text-slate-600 leading-relaxed text-sm md:text-base">
+              We build lightweight, fun experiences with a strong focus on clean UI, satisfying
+              interactions, and replayability. We ship, learn fast, and improve with every update.
             </p>
 
-            <div className="mt-8 flex gap-3 flex-wrap">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 flex-wrap">
               <Link
                 to="/apps"
-                className="px-7 py-4 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition text-center"
               >
                 OUR APPS
               </Link>
 
               <button
                 onClick={scrollToHomeContact}
-                className="px-7 py-4 rounded-xl border border-slate-300 text-slate-900 font-extrabold hover:border-orange-500 hover:text-orange-600 transition"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl border border-slate-300 text-slate-900 font-extrabold hover:border-orange-500 hover:text-orange-600 transition"
               >
                 CONTACT
               </button>
@@ -151,38 +163,42 @@ export default function Home() {
 
       {/* ABOUT */}
       <section ref={aboutRef} className="bg-slate-50 border-y border-slate-200 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 py-20">
+        <div className="max-w-6xl mx-auto px-4 py-14 md:py-20">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div
               className={[
                 "transition-all duration-1200 ease-out will-change-transform",
-                aboutVisible ? "translate-x-0 opacity-100" : "-translate-x-64 opacity-0",
+                aboutVisible
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-6 opacity-0 md:-translate-x-64",
               ].join(" ")}
             >
-              <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900">
+              <h2 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900">
                 About <span className="text-orange-500">2Arc</span>
               </h2>
 
-              <p className="mt-5 text-indigo-600 font-extrabold text-lg md:text-xl">
-                2Arc was founded to reach millions with high-quality entertainment apps.
+              <p className="mt-4 md:mt-5 text-indigo-600 font-extrabold text-base md:text-xl">
+                We’re two developers building mobile entertainment apps with a simple goal: make
+                people smile in under 30 seconds.
               </p>
 
-              <p className="mt-6 text-slate-600 leading-relaxed">
-                We put the user at the center. We iterate fast, test ideas, and ship what feels
-                fun.
+              <p className="mt-4 md:mt-6 text-slate-600 leading-relaxed text-sm md:text-base">
+                We focus on fast iteration, polished details, and fun-first design. Our first app is
+                launching soon — and we’re excited to grow this into a small studio with multiple
+                unique experiences.
               </p>
 
-              <div className="mt-8 flex gap-3 flex-wrap">
+              <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 flex-wrap">
                 <Link
                   to="/about"
-                  className="px-7 py-4 rounded-xl bg-indigo-600 text-white font-extrabold hover:bg-indigo-700 transition"
+                  className="w-full sm:w-auto px-7 py-4 rounded-xl bg-indigo-600 text-white font-extrabold hover:bg-indigo-700 transition text-center"
                 >
                   ABOUT US
                 </Link>
 
                 <button
                   onClick={scrollToHomeContact}
-                  className="px-7 py-4 rounded-xl border border-slate-300 text-slate-900 font-extrabold hover:border-indigo-500 hover:text-indigo-600 transition"
+                  className="w-full sm:w-auto px-7 py-4 rounded-xl border border-slate-300 text-slate-900 font-extrabold hover:border-indigo-500 hover:text-indigo-600 transition"
                 >
                   CONTACT
                 </button>
@@ -193,13 +209,15 @@ export default function Home() {
               className={[
                 "flex justify-center",
                 "transition-all duration-1200 ease-out delay-200 will-change-transform",
-                aboutVisible ? "translate-x-0 opacity-100" : "translate-x-64 opacity-0",
+                aboutVisible
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-6 opacity-0 md:translate-x-64",
               ].join(" ")}
             >
               <img
                 src={aboutLogo}
                 alt="2Arc logo"
-                className="w-[540px] max-w-full rounded-3xl drop-shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
+                className="w-full max-w-[280px] sm:max-w-[360px] md:w-[540px] md:max-w-full rounded-3xl drop-shadow-[0_18px_40px_rgba(15,23,42,0.18)]"
               />
             </div>
           </div>

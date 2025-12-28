@@ -39,9 +39,9 @@ function useRevealOnScroll({ threshold = 0.25, rootMargin = "0px" } = {}) {
 const APPS = [
   {
     id: "app-1",
-    name: "Ranking Filters: Fun Challange",
+    name: "Ranking Filters: Fun Challenge",
     desc:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor voluptatum magni tenetur minus mollitia, amet odio ad ipsam inventore adipisci cupiditate asperiores dolorem repellat nam voluptates consequatur quasi nostrum maxime.",
+      "Ranking Filters is a short-form video ranking game. Pick a category, rank items from best to worst, and record your reaction as you decide. Your list builds step by step while you film — making every choice fun, surprising, and shareable. Create rankings, challenge friends, compare results, and post your favorite moments.",
     image: app1Img,
     googlePlayUrl: "https://play.google.com/store",
     appStoreUrl: "https://www.apple.com/app-store/",
@@ -87,24 +87,22 @@ export default function Apps() {
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/15 via-fuchsia-500/10 to-emerald-400/10" />
 
-        {/* About'taki yerleşimle uyumlu: absolute + bottom oranı */}
-        <div className="relative max-w-6xl mx-auto px-4 h-full">
-          <div
-            ref={heroTextRef}
-            className={[
-              "absolute left-0 bottom-[20%] md:bottom-[22%] px-4",
-              "transition-all duration-700 ease-out will-change-transform",
-              heroTextVisible ? "translate-x-0 opacity-100" : "-translate-x-64 opacity-0",
-            ].join(" ")}
-          >
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white">
-              OUR APPS
-            </h1>
+        {/* ✅ METİN BLOĞU: Gerçek ekranın SOL-ALT'ına sabit (container'a bağlı değil) */}
+        <div
+          ref={heroTextRef}
+          className={[
+            "absolute left-6 md:left-16 bottom-14 md:bottom-24",
+            "transition-all duration-700 ease-out will-change-transform",
+            heroTextVisible ? "translate-x-0 opacity-100" : "-translate-x-64 opacity-0",
+          ].join(" ")}
+        >
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight text-white">
+            OUR APPS
+          </h1>
 
-            <p className="mt-3 text-white/80 text-base md:text-lg leading-relaxed max-w-[620px]">
-              Mobile apps built for fun, sharing and everyday play.
-            </p>
-          </div>
+          <p className="mt-3 text-white/80 text-base md:text-lg leading-relaxed max-w-[620px]">
+            Short-form ranking apps where you record, react, and share your list with friends.
+          </p>
         </div>
       </section>
 
@@ -151,7 +149,6 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
               alt={app.name}
               className="w-[420px] max-w-full object-cover block"
             />
-
           </div>
         </div>
 
