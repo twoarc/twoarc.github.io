@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import heroImg from "../assets/home_hero.png";
+import heroImg from "../assets/home_hero.webp";
 import appsImg from "../assets/app_icon.png";
 import aboutLogo from "../assets/logo_2Arc.png";
 

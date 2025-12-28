@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import ContactSection from "../components/ContactSection";
 
-import heroImg from "../assets/apps-hero.jpg";
+import heroImg from "../assets/apps-hero.webp";
 import app1Img from "../assets/app_icon.png";
 
 import googlePlayBadge from "../assets/google-play-badge.png";

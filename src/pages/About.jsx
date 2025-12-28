@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import aboutHero from "../assets/about_hero.png";
+import aboutHero from "../assets/about_hero.webp";
 import ContactSection from "../components/ContactSection";
 
 /**
