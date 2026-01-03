@@ -30,6 +30,7 @@ export default function ContactSection({
         },
       });
 
+
       if (response.ok) {
         setStatus("SUCCESS");
         alert("✅ Thank you! Your message has been sent successfully.");
