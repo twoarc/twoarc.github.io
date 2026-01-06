@@ -174,32 +174,31 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           </p>
 
           <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
-            <a
-              href={app.googlePlayUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform hover:scale-105"
-            >
+            {/* GOOGLE PLAY – COMING SOON / CLOSED TEST */}
+            <div className="relative">
               <img
                 src={googlePlayBadge}
-                alt="Get it on Google Play"
-                className="h-12 md:h-16"
+                alt="Google Play – Coming Soon"
+                className="h-12 md:h-16 opacity-60 grayscale cursor-not-allowed"
               />
-            </a>
+              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-xs text-slate-500 whitespace-nowrap">
+                Closed Testing
+              </span>
+            </div>
 
-            <a
-              href={app.appStoreUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-transform hover:scale-105"
-            >
+            {/* APP STORE – COMING SOON */}
+            <div className="relative">
               <img
                 src={appStoreBadge}
-                alt="Download on the App Store"
-                className="h-12 md:h-16"
+                alt="App Store – Coming Soon"
+                className="h-12 md:h-16 opacity-60 grayscale cursor-not-allowed"
               />
-            </a>
+              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-xs text-slate-500 whitespace-nowrap">
+                Coming Soon
+              </span>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
