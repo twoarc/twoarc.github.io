@@ -11,6 +11,7 @@ import appStoreBadge from "../assets/app-store-badge.png";
 
 /**
  * Scroll görünür olunca reveal animasyonu (1 kez tetiklenir)
+ * ✅ FIX: IntersectionObserver yoksa crash etmesin
  */
 function useRevealOnScroll({ threshold = 0.25, rootMargin = "0px" } = {}) {
   const ref = useRef(null);
@@ -21,6 +22,12 @@ function useRevealOnScroll({ threshold = 0.25, rootMargin = "0px" } = {}) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // ✅ Fallback: bazı browser/webview’larda IntersectionObserver yok
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
 
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -58,17 +65,18 @@ export default function Apps() {
     const el = document.getElementById(id);
     if (!el) return;
 
-    setTimeout(() => {
+    const t = setTimeout(() => {
       el.scrollIntoView({ behavior: "smooth" });
     }, 50);
+
+    return () => clearTimeout(t);
   }, [location.hash]);
 
   // HERO text reveal
   const [heroTextRef, heroTextVisible] = useRevealOnScroll({ threshold: 0.2 });
 
-  // About: mobile 500px, desktop 700px
+  // About ile aynı boyut: mobile 500px, desktop 700px
   const HERO_H_MOBILE = 500;
-  const HERO_H_DESKTOP = 700;
 
   return (
     <div>
@@ -127,10 +135,6 @@ export default function Apps() {
   );
 }
 
-/**
- * App card: resim soldan, yazı sağdan gelsin (Home’daki gibi)
- * ✅ Mobil düzgün, ✅ Desktop tıpatıp aynı
- */
 function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
   const [rowRef, rowVisible] = useRevealOnScroll({ threshold: 0.2 });
 
@@ -142,9 +146,7 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           className={[
             "flex justify-center",
             "transition-all duration-1200 ease-out will-change-transform",
-            rowVisible
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-6 opacity-0 md:-translate-x-64",
+            rowVisible ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0 md:-translate-x-64",
           ].join(" ")}
         >
           <div className="rounded-[72px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
@@ -160,9 +162,7 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
         <div
           className={[
             "transition-all duration-1200 ease-out delay-200 will-change-transform",
-            rowVisible
-              ? "translate-x-0 opacity-100"
-              : "translate-x-6 opacity-0 md:translate-x-64",
+            rowVisible ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0 md:translate-x-64",
           ].join(" ")}
         >
           <h2 className="text-2xl md:text-4xl font-black tracking-tight text-slate-900">
@@ -174,7 +174,6 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           </p>
 
           <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
-            {/* GOOGLE PLAY – COMING SOON / CLOSED TEST */}
             <div className="relative">
               <img
                 src={googlePlayBadge}
@@ -186,7 +185,6 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
               </span>
             </div>
 
-            {/* APP STORE – COMING SOON */}
             <div className="relative">
               <img
                 src={appStoreBadge}
@@ -198,7 +196,6 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
               </span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
