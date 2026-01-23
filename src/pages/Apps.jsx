@@ -146,7 +146,9 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           className={[
             "flex justify-center",
             "transition-all duration-1200 ease-out will-change-transform",
-            rowVisible ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0 md:-translate-x-64",
+            rowVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-6 opacity-0 md:-translate-x-64",
           ].join(" ")}
         >
           <div className="rounded-[72px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
@@ -162,7 +164,9 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
         <div
           className={[
             "transition-all duration-1200 ease-out delay-200 will-change-transform",
-            rowVisible ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0 md:translate-x-64",
+            rowVisible
+              ? "translate-x-0 opacity-100"
+              : "translate-x-6 opacity-0 md:translate-x-64",
           ].join(" ")}
         >
           <h2 className="text-2xl md:text-4xl font-black tracking-tight text-slate-900">
@@ -174,10 +178,11 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           </p>
 
           <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
+            {/* Google Play - Closed Testing (pasif) */}
             <div className="relative">
               <img
                 src={googlePlayBadge}
-                alt="Google Play – Coming Soon"
+                alt="Google Play – Closed Testing"
                 className="h-12 md:h-16 opacity-60 grayscale cursor-not-allowed"
               />
               <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-xs text-slate-500 whitespace-nowrap">
@@ -185,19 +190,23 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
               </span>
             </div>
 
-            <div className="relative">
+            {/* App Store - Aktif */}
+            <a
+              href="https://apps.apple.com/tr/app/ranking-filter-fun-challenge/id6757232644?l=tr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-transform hover:scale-105"
+            >
               <img
                 src={appStoreBadge}
-                alt="App Store – Coming Soon"
-                className="h-12 md:h-16 opacity-60 grayscale cursor-not-allowed"
+                alt="Download on the App Store"
+                className="h-12 md:h-16"
               />
-              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-xs text-slate-500 whitespace-nowrap">
-                Coming Soon
-              </span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
   );
 }
+

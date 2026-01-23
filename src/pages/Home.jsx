@@ -81,7 +81,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-3 text-white/85 text-sm leading-relaxed md:mt-4 md:text-lg">
-              We’re a two-person studio creating entertainment-first apps made for quick sessions,
+              We’re a two-person studio shipping entertainment-first apps made for quick sessions,
               sharing, and everyday fun.
             </p>
 
@@ -90,7 +90,7 @@ export default function Home() {
                 to="/apps"
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition text-center"
               >
-                OUR APPS
+                SEE OUR APPS
               </Link>
 
               <button
@@ -105,10 +105,7 @@ export default function Home() {
       </section>
 
       {/* OUR APPS */}
-      <section
-        ref={appsRef}
-        className="max-w-6xl mx-auto px-4 py-14 md:py-20 overflow-hidden"
-      >
+      <section ref={appsRef} className="max-w-6xl mx-auto px-4 py-14 md:py-20 overflow-hidden">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div
             className={[
@@ -133,16 +130,17 @@ export default function Home() {
             ].join(" ")}
           >
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
-              First app is on the way
+              We’re live on the App Store
             </h2>
 
             <p className="mt-3 text-lg md:mt-4 md:text-2xl text-orange-600 font-black">
-              We’re getting ready for our first release.
+              Our first release is out — and we’re shipping updates fast.
             </p>
 
             <p className="mt-4 md:mt-5 text-slate-600 leading-relaxed text-sm md:text-base">
               We build lightweight, fun experiences with a strong focus on clean UI, satisfying
-              interactions, and replayability. We ship, learn fast, and improve with every update.
+              interactions, and replayability. Every update is driven by real user feedback and
+              rapid iteration.
             </p>
 
             <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3">
@@ -150,7 +148,7 @@ export default function Home() {
                 to="/apps"
                 className="w-full sm:w-auto px-7 py-4 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition text-center"
               >
-                OUR APPS
+                VIEW THE APP
               </Link>
 
               <button
@@ -160,6 +158,10 @@ export default function Home() {
                 CONTACT
               </button>
             </div>
+
+            <p className="mt-4 text-xs md:text-sm text-slate-500">
+              Want to collaborate or feature our app? Reach out — we reply fast.
+            </p>
           </div>
         </div>
       </section>
@@ -186,9 +188,9 @@ export default function Home() {
               </p>
 
               <p className="mt-4 md:mt-6 text-slate-600 leading-relaxed text-sm md:text-base">
-                We focus on fast iteration, polished details, and fun-first design. Our first app is
-                launching soon — and we’re excited to grow this into a small studio with multiple
-                unique experiences.
+                We focus on fast iteration, polished details, and fun-first design. Now that our
+                first app is live, we’re doubling down on improvements, new features, and the next
+                releases in our pipeline.
               </p>
 
               <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3">
