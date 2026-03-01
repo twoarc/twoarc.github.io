@@ -53,19 +53,26 @@
       border: 1px solid rgba(255,255,255,0.2);
     }
     .divider { margin: 24px 0; color: #8e8e93; font-size: 0.85rem; }
-    .stores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
-    .stores a { color: #8e8e93; text-decoration: none; font-size: 0.9rem; }
+    .store-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+    .store-row a { display: block; }
+    .store-row img, .store-row svg { height: 44px; display: block; }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>🏆 Lige katıl</h1>
     <p id="codeLine">Davet kodu: <span id="code" class="code">—</span></p>
-    <a id="openApp" href="#" class="btn btn-primary">Uygulamada aç</a>
+    <a id="openApp" href="#" class="btn btn-primary">Lige katıl</a>
     <p class="divider">Uygulama yüklü değilse:</p>
-    <a href="https://play.google.com/store/apps/details?id=com.twoarc.worldcup" class="btn btn-secondary" target="_blank" rel="noopener">Google Play'den indir</a>
-    <a href="https://apps.apple.com/app/id0000000000" class="btn btn-secondary" target="_blank" rel="noopener">App Store'dan indir</a>
-    <p class="divider"><small>Apple App Store linkini yayınladıktan sonra güncelleyin (id0000000000 → gerçek app id)</small></p>
+    <div class="store-row">
+      <a href="https://play.google.com/store/apps/details?id=com.twoarc.worldcup" target="_blank" rel="noopener" title="Google Play'den indir">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/tr_badge_web_generic.png" alt="Google Play" />
+      </a>
+      <a href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener" title="App Store'dan indir" class="appstore-badge">
+        <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="40" rx="6" fill="#000" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><text x="60" y="25" text-anchor="middle" fill="#fff" font-size="11" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="600">App Store'dan indir</text></svg>
+      </a>
+    </div>
+    <p class="divider"><small>App Store linkini yayınladıktan sonra güncelleyin (id0000000000 → gerçek app id)</small></p>
   </div>
   <script>
     (function() {
@@ -77,13 +84,19 @@
       var codeEl = document.getElementById('code');
       if (code) {
         codeEl.textContent = code;
-        openEl.href = deepLink;
-        openEl.textContent = 'Uygulamada aç';
       } else {
         codeEl.textContent = 'Kod yok';
-        openEl.href = 'worldcup://';
-        openEl.textContent = 'Uygulamayı aç';
+        deepLink = 'worldcup://';
       }
+      openEl.href = deepLink;
+      openEl.textContent = 'Lige katıl';
+      openEl.setAttribute('data-deeplink', deepLink);
+      openEl.onclick = function(e) {
+        e.preventDefault();
+        var link = openEl.getAttribute('data-deeplink') || deepLink;
+        window.location.href = link;
+        return false;
+      };
     })();
   </script>
 </body>
