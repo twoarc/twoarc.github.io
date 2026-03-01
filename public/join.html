@@ -79,19 +79,17 @@
       var params = new URLSearchParams(window.location.search);
       var code = params.get('code') || '';
       code = code.trim().toUpperCase();
-      var deepLink = 'worldcup://join/' + encodeURIComponent(code);
       var openEl = document.getElementById('openApp');
       var codeEl = document.getElementById('code');
+      var deepLink = 'worldcup://join/' + encodeURIComponent(code);
       if (code) {
         codeEl.textContent = code;
+        openEl.href = deepLink;
       } else {
         codeEl.textContent = 'Kod yok';
-        deepLink = 'worldcup://';
+        openEl.href = 'worldcup://';
       }
-      openEl.href = deepLink;
       openEl.textContent = 'Lige katıl';
-      openEl.removeAttribute('target');
-      openEl.onclick = null;
     })();
   </script>
 </body>
