@@ -81,13 +81,32 @@
       code = code.trim().toUpperCase();
       var openEl = document.getElementById('openApp');
       var codeEl = document.getElementById('code');
-      var deepLink = 'worldcup://join/' + encodeURIComponent(code);
+      var isAndroid = /Android/i.test(navigator.userAgent);
+      var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      var playStoreUrl = 'https://play.google.com/store/apps/details?id=com.twoarc.worldcup';
+      var joinBaseUrl = 'https://twoarc.github.io/public/join.html';
+      var deepLink;
       if (code) {
         codeEl.textContent = code;
+        if (isAndroid) {
+          var path = 'join/' + encodeURIComponent(code);
+          deepLink = 'intent://' + path + '#Intent;scheme=worldcup;package=com.twoarc.worldcup;S.browser_fallback_url=' + encodeURIComponent(playStoreUrl) + ';end';
+        } else if (isIOS) {
+          deepLink = joinBaseUrl + '?code=' + encodeURIComponent(code);
+        } else {
+          deepLink = 'worldcup://join/' + encodeURIComponent(code);
+        }
         openEl.href = deepLink;
       } else {
         codeEl.textContent = 'Kod yok';
-        openEl.href = 'worldcup://';
+        if (isAndroid) {
+          deepLink = 'intent://#Intent;scheme=worldcup;package=com.twoarc.worldcup;S.browser_fallback_url=' + encodeURIComponent(playStoreUrl) + ';end';
+        } else if (isIOS) {
+          deepLink = joinBaseUrl;
+        } else {
+          deepLink = 'worldcup://';
+        }
+        openEl.href = deepLink;
       }
       openEl.textContent = 'Lige katıl';
     })();
