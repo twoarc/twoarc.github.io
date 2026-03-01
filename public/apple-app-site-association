@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "752NA5ZHQD.com.twoarc.worldcup",
+        "paths": ["/public/join.html", "/public/join"]
+      }
+    ]
+  }
+}
