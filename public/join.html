@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World Cup - Join the League</title>
+  <title>Lige katıl – WorldCup</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -21,115 +21,77 @@
     }
     .card {
       background: #1a1a1a;
-      border-radius: 24px;
+      border-radius: 20px;
       padding: 32px;
-      max-width: 380px;
+      max-width: 360px;
       width: 100%;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
-    h1 { font-size: 1.8rem; margin: 0 0 8px; color: #fff; }
-    .code-label { color: #8e8e93; font-size: 0.9rem; margin-bottom: 4px; }
-    .code { 
-      color: #00ff87; 
-      font-weight: 900; 
-      letter-spacing: 3px; 
-      font-size: 1.5rem; 
-      display: block;
-      margin-bottom: 24px;
-    }
+    h1 { font-size: 1.5rem; margin: 0 0 8px; }
+    .code { color: #00ff87; font-weight: 900; letter-spacing: 2px; font-size: 1.2rem; }
     .btn {
       display: block;
       width: 100%;
-      padding: 18px 24px;
+      padding: 16px 24px;
       margin: 12px 0;
-      border-radius: 14px;
+      border-radius: 12px;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1rem;
       text-decoration: none;
       text-align: center;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
+      transition: opacity 0.2s;
     }
+    .btn:active { opacity: 0.85; }
     .btn-primary {
       background: #00ff87;
       color: #000;
     }
-    .btn-primary:active { transform: scale(0.98); }
-    
-    .divider { 
-      margin: 32px 0 16px; 
-      color: #8e8e93; 
-      font-size: 0.85rem; 
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .btn-secondary {
+      background: #2a2a2a;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
     }
-
-    .store-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-    }
-    .store-link {
-      transition: opacity 0.2s;
-      display: inline-block;
-    }
-    .store-link:hover { opacity: 0.8; }
-    .store-img {
-      height: 48px;
-      display: block;
-    }
+    .divider { margin: 24px 0; color: #8e8e93; font-size: 0.85rem; }
+    .store-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+    .store-row a { display: block; }
+    .store-row img, .store-row svg { height: 44px; display: block; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>🏆 World Cup</h1>
-    <p class="code-label">Invite Code</p>
-    <span id="code" class="code">—</span>
-    
-    <a id="openApp" href="#" class="btn btn-primary">Join the League</a>
-    
-    <div class="divider">Get the App</div>
-    
-    <div class="store-buttons">
-      <a href="https://apps.apple.com/app/id0000000000" class="store-link">
-        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on App Store" class="store-img">
+    <h1>🏆 Lige katıl</h1>
+    <p id="codeLine">Davet kodu: <span id="code" class="code">—</span></p>
+    <a id="openApp" href="#" class="btn btn-primary">Lige katıl</a>
+    <p class="divider">Uygulama yüklü değilse:</p>
+    <div class="store-row">
+      <a href="https://play.google.com/store/apps/details?id=com.twoarc.worldcup" target="_blank" rel="noopener" title="Google Play'den indir">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/tr_badge_web_generic.png" alt="Google Play" />
       </a>
-      
-      <a href="https://play.google.com/store/apps/details?id=com.twoarc.worldcup" class="store-link">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="store-img" style="height: 64px; margin: -8px 0;">
+      <a href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener" title="App Store'dan indir" class="appstore-badge">
+        <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="40" rx="6" fill="#000" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><text x="60" y="25" text-anchor="middle" fill="#fff" font-size="11" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="600">App Store'dan indir</text></svg>
       </a>
     </div>
+    <p class="divider"><small>App Store linkini yayınladıktan sonra güncelleyin (id0000000000 → gerçek app id)</small></p>
   </div>
-
   <script>
     (function() {
-      const params = new URLSearchParams(window.location.search);
-      let code = params.get('code') || '';
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code') || '';
       code = code.trim().toUpperCase();
-      
-      const openEl = document.getElementById('openApp');
-      const codeEl = document.getElementById('code');
-      
-      const deepLink = code ? `worldcup://join/${encodeURIComponent(code)}` : 'worldcup://';
-      
+      var deepLink = 'worldcup://join/' + encodeURIComponent(code);
+      var openEl = document.getElementById('openApp');
+      var codeEl = document.getElementById('code');
       if (code) {
         codeEl.textContent = code;
       } else {
-        codeEl.textContent = 'NO CODE';
+        codeEl.textContent = 'Kod yok';
+        deepLink = 'worldcup://';
       }
-
-      openEl.onclick = function(e) {
-        e.preventDefault();
-        window.location.href = deepLink;
-        
-        // Fallback: If app doesn't open, alert user or stay on page
-        setTimeout(() => {
-          console.log("Deep link triggered");
-        }, 500);
-      };
+      openEl.href = deepLink;
+      openEl.textContent = 'Lige katıl';
+      openEl.removeAttribute('target');
+      openEl.onclick = null;
     })();
   </script>
 </body>
