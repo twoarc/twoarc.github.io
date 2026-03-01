@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lige katıl – WorldCup</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 360px;
+      width: 100%;
+    }
+    h1 { font-size: 1.5rem; margin: 0 0 8px; }
+    .code { color: #00ff87; font-weight: 900; letter-spacing: 2px; font-size: 1.2rem; }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      margin: 12px 0;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:active { opacity: 0.85; }
+    .btn-primary {
+      background: #00ff87;
+      color: #000;
+    }
+    .btn-secondary {
+      background: #2a2a2a;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .divider { margin: 24px 0; color: #8e8e93; font-size: 0.85rem; }
+    .stores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .stores a { color: #8e8e93; text-decoration: none; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🏆 Lige katıl</h1>
+    <p id="codeLine">Davet kodu: <span id="code" class="code">—</span></p>
+    <a id="openApp" href="#" class="btn btn-primary">Uygulamada aç</a>
+    <p class="divider">Uygulama yüklü değilse:</p>
+    <a href="https://play.google.com/store/apps/details?id=com.twoarc.worldcup" class="btn btn-secondary" target="_blank" rel="noopener">Google Play'den indir</a>
+    <a href="https://apps.apple.com/app/id0000000000" class="btn btn-secondary" target="_blank" rel="noopener">App Store'dan indir</a>
+    <p class="divider"><small>Apple App Store linkini yayınladıktan sonra güncelleyin (id0000000000 → gerçek app id)</small></p>
+  </div>
+  <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code') || '';
+      code = code.trim().toUpperCase();
+      var deepLink = 'worldcup://join/' + encodeURIComponent(code);
+      var openEl = document.getElementById('openApp');
+      var codeEl = document.getElementById('code');
+      if (code) {
+        codeEl.textContent = code;
+        openEl.href = deepLink;
+        openEl.textContent = 'Uygulamada aç';
+      } else {
+        codeEl.textContent = 'Kod yok';
+        openEl.href = 'worldcup://';
+        openEl.textContent = 'Uygulamayı aç';
+      }
+    })();
+  </script>
+</body>
+</html>
