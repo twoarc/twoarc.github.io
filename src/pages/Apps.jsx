@@ -50,8 +50,8 @@ const APPS = [
     desc:
       "Ranking Filters is a short-form video ranking game. Pick a category, rank items from best to worst, and record your reaction as you decide. Your list builds step by step while you film — making every choice fun, surprising, and shareable. Create rankings, challenge friends, compare results, and post your favorite moments.",
     image: app1Img,
-    googlePlayUrl: "https://play.google.com/store",
-    appStoreUrl: "https://www.apple.com/app-store/",
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.twoarc.rankingfilterfunchallenge",
+    appStoreUrl: "https://apps.apple.com/tr/app/ranking-filter-fun-challenge/id6757232644?l=tr",
   },
 ];
 
@@ -178,21 +178,23 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           </p>
 
           <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
-            {/* Google Play - Closed Testing (pasif) */}
-            <div className="relative">
+            {/* Google Play - AKTİF */}
+            <a
+              href={app.googlePlayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-transform hover:scale-105"
+            >
               <img
                 src={googlePlayBadge}
-                alt="Google Play – Closed Testing"
-                className="h-12 md:h-16 opacity-60 grayscale cursor-not-allowed"
+                alt="Get it on Google Play"
+                className="h-12 md:h-16"
               />
-              <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-xs text-slate-500 whitespace-nowrap">
-                Closed Testing
-              </span>
-            </div>
+            </a>
 
-            {/* App Store - Aktif */}
+            {/* App Store - AKTİF */}
             <a
-              href="https://apps.apple.com/tr/app/ranking-filter-fun-challenge/id6757232644?l=tr"
+              href={app.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block transition-transform hover:scale-105"
@@ -209,4 +211,3 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
     </div>
   );
 }
-
