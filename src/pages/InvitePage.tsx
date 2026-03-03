@@ -29,19 +29,32 @@ const InvitePage = () => {
         const fallbackUrlAndroid = "https://play.google.com/store/apps/details?id=com.twoarc.worldcup";
 
         // 4. Uygulamayı açmayı dene (Deep Link)
-        window.location.href = appSchemeUrl;
+        if (isIOS) {
+            // iOS Safari'de "Geçersiz Adres" hatasını önlemek için güvenli yöntem
+            window.location.href = appSchemeUrl;
+            setTimeout(() => {
+                // Eğer uygulama açılamadıysa ve kullanıcı hala sayfadaysa App Store'a yönlendir
+                if (!document.hidden) {
+                    window.location.href = fallbackUrlIOS;
+                }
+            }, 2500);
+        } else if (isAndroid) {
+            // Android'de intent iframe 
+            const iframe = document.createElement("iframe");
+            iframe.style.display = "none";
+            iframe.src = appSchemeUrl;
+            document.body.appendChild(iframe);
 
-        // 5. Uygulama açılmazsa ilgili mağazaya yönlendir
-        setTimeout(() => {
-            if (isIOS) {
-                window.location.href = fallbackUrlIOS;
-            } else if (isAndroid) {
-                window.location.href = fallbackUrlAndroid;
-            } else {
-                // Masaüstü veya bilinmeyen OS için varsayılan fallback
-                window.location.href = fallbackUrlAndroid;
-            }
-        }, 2500); // 2.5 saniye bekle
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+                if (!document.hidden) {
+                    window.location.href = fallbackUrlAndroid;
+                }
+            }, 2500);
+        } else {
+            // Masaüstü veya bilinmeyen OS için varsayılan fallback
+            window.location.href = fallbackUrlAndroid;
+        }
     };
 
     return (
