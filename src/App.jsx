@@ -4,6 +4,7 @@ import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Apps from "./pages/Apps.jsx";
 import About from "./pages/About.jsx";
+import InvitePage from "./pages/InvitePage.tsx";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/apps" element={<Apps />} />
           <Route path="/about" element={<About />} />
+          <Route path="/invite" element={<InvitePage />} />
         </Routes>
       </main>
 
