@@ -130,11 +130,11 @@ export default function Home() {
             ].join(" ")}
           >
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
-              We’re live on the App Store
+              Fun moments, now on mobile
             </h2>
 
             <p className="mt-3 text-lg md:mt-4 md:text-2xl text-orange-600 font-black">
-              Our first release is out — and we’re shipping updates fast.
+              Our first release is out — Download now and enjoy quick, fun moments anytime!
             </p>
 
             <p className="mt-4 md:mt-5 text-slate-600 leading-relaxed text-sm md:text-base">
