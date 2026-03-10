@@ -23,7 +23,6 @@ function useRevealOnScroll({ threshold = 0.25, rootMargin = "0px" } = {}) {
     const el = ref.current;
     if (!el) return;
 
-    // ✅ Fallback: bazı browser/webview’larda IntersectionObserver yok
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
       setVisible(true);
       return;
@@ -58,7 +57,6 @@ const APPS = [
 export default function Apps() {
   const location = useLocation();
 
-  // /apps#contact gibi hash ile gelince otomatik scroll
   useEffect(() => {
     if (!location.hash) return;
     const id = location.hash.replace("#", "");
@@ -72,15 +70,12 @@ export default function Apps() {
     return () => clearTimeout(t);
   }, [location.hash]);
 
-  // HERO text reveal
   const [heroTextRef, heroTextVisible] = useRevealOnScroll({ threshold: 0.2 });
 
-  // About ile aynı boyut: mobile 500px, desktop 700px
   const HERO_H_MOBILE = 500;
 
   return (
     <div>
-      {/* HERO (About ile aynı boyut) */}
       <section
         className="relative overflow-hidden border-b border-slate-200 md:h-[700px]"
         style={{ height: `${HERO_H_MOBILE}px` }}
@@ -94,7 +89,6 @@ export default function Apps() {
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/15 via-fuchsia-500/10 to-emerald-400/10" />
 
-        {/* METİN BLOĞU */}
         <div
           ref={heroTextRef}
           className={[
@@ -115,7 +109,6 @@ export default function Apps() {
         </div>
       </section>
 
-      {/* LIST */}
       <section className="bg-white">
         <div className="max-w-6xl mx-auto px-4 py-14 space-y-14">
           {APPS.map((app) => (
@@ -129,7 +122,6 @@ export default function Apps() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <ContactSection id="contact" companyName="2Arc" email="twoarc@proton.me" />
     </div>
   );
@@ -141,7 +133,6 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
   return (
     <div ref={rowRef} className="overflow-hidden">
       <div className="grid md:grid-cols-2 gap-10 items-center">
-        {/* IMAGE -> soldan gelsin */}
         <div
           className={[
             "flex justify-center",
@@ -160,7 +151,6 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           </div>
         </div>
 
-        {/* TEXT -> sağdan gelsin */}
         <div
           className={[
             "transition-all duration-1200 ease-out delay-200 will-change-transform",
@@ -178,7 +168,6 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           </p>
 
           <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
-            {/* Google Play - Aktif */}
             <a
               href={app.googlePlayUrl}
               target="_blank"
@@ -191,11 +180,8 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
                 className="h-12 md:h-16"
               />
             </a>
-            </a>
 
-            {/* App Store - AKTİF */}
             <a
-              href={app.appStoreUrl}
               href={app.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
