@@ -191,9 +191,11 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
                 className="h-12 md:h-16"
               />
             </a>
+            </a>
 
-            {/* App Store - Aktif */}
+            {/* App Store - AKTİF */}
             <a
+              href={app.appStoreUrl}
               href={app.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
