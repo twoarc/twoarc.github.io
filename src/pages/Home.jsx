@@ -2,7 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import heroImg from "../assets/home_hero.webp";
-import appsImg from "../assets/app_icon.png";
+import rankingImg from "../assets/app_icon.png";
+import goalxImg from "../assets/goalx_icon.png";
 import aboutLogo from "../assets/logo_2Arc.png";
 
 import ContactSection from "../components/ContactSection";
@@ -19,6 +20,11 @@ function useRevealOnScroll({ threshold = 0.25, rootMargin = "0px" } = {}) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
 
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -116,8 +122,22 @@ export default function Home() {
                 : "-translate-x-6 opacity-0 md:-translate-x-64",
             ].join(" ")}
           >
-            <div className="w-full max-w-[260px] sm:max-w-[320px] md:w-[420px] md:max-w-full rounded-[64px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
-              <img src={appsImg} alt="Apps showcase" className="w-full h-auto block" />
+            <div className="relative w-[300px] h-[260px] sm:w-[380px] sm:h-[320px] md:w-[460px] md:h-[380px]">
+              <div className="absolute left-0 top-10 w-[180px] sm:w-[230px] md:w-[280px] rounded-[52px] sm:rounded-[68px] md:rounded-[84px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)] rotate-[-8deg]">
+                <img
+                  src={rankingImg}
+                  alt="Ranking Filters app"
+                  className="w-full h-auto block"
+                />
+              </div>
+
+              <div className="absolute right-0 top-0 w-[190px] sm:w-[245px] md:w-[300px] rounded-[56px] sm:rounded-[72px] md:rounded-[90px] overflow-hidden shadow-[0_22px_60px_rgba(15,23,42,0.22)] rotate-[7deg]">
+                <img
+                  src={goalxImg}
+                  alt="GoalX app"
+                  className="w-full h-auto block"
+                />
+              </div>
             </div>
           </div>
 
@@ -134,7 +154,7 @@ export default function Home() {
             </h2>
 
             <p className="mt-3 text-lg md:mt-4 md:text-2xl text-orange-600 font-black">
-              Our first release is out — Download now and enjoy quick, fun moments anytime!
+              Our apps are live — download now and enjoy quick, fun moments anytime!
             </p>
 
             <p className="mt-4 md:mt-5 text-slate-600 leading-relaxed text-sm md:text-base">
@@ -148,7 +168,7 @@ export default function Home() {
                 to="/apps"
                 className="w-full sm:w-auto px-7 py-4 rounded-xl bg-orange-600 text-white font-extrabold hover:bg-orange-700 transition text-center"
               >
-                VIEW THE APP
+                VIEW APPS
               </Link>
 
               <button
@@ -160,7 +180,7 @@ export default function Home() {
             </div>
 
             <p className="mt-4 text-xs md:text-sm text-slate-500">
-              Want to collaborate or feature our app? Reach out — we reply fast.
+              Want to collaborate or feature our apps? Reach out — we reply fast.
             </p>
           </div>
         </div>
@@ -189,7 +209,7 @@ export default function Home() {
 
               <p className="mt-4 md:mt-6 text-slate-600 leading-relaxed text-sm md:text-base">
                 We focus on fast iteration, polished details, and fun-first design. Now that our
-                first app is live, we’re doubling down on improvements, new features, and the next
+                apps are live, we’re doubling down on improvements, new features, and the next
                 releases in our pipeline.
               </p>
 
