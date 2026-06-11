@@ -5,7 +5,7 @@ import ContactSection from "../components/ContactSection";
 
 import heroImg from "../assets/apps-hero.webp";
 import app1Img from "../assets/app_icon.png";
-import app2Img from "../assets/goalx.png";
+import goalxImg from "../assets/goalx_icon.png";
 
 import googlePlayBadge from "../assets/google-play-badge.png";
 import appStoreBadge from "../assets/app-store-badge.png";
@@ -45,7 +45,7 @@ function useRevealOnScroll({ threshold = 0.25, rootMargin = "0px" } = {}) {
 
 const APPS = [
   {
-    id: "app-1",
+    id: "ranking-filters",
     name: "Ranking Filters: Fun Challenge",
     desc:
       "Ranking Filters is a short-form video ranking game. Pick a category, rank items from best to worst, and record your reaction as you decide. Your list builds step by step while you film — making every choice fun, surprising, and shareable. Create rankings, challenge friends, compare results, and post your favorite moments.",
@@ -54,10 +54,11 @@ const APPS = [
     appStoreUrl: "https://apps.apple.com/tr/app/ranking-filter-fun-challenge/id6757232644",
   },
   {
-    id: "app-2",
+    id: "goalx",
     name: "GoalX: Football Prediction",
-    desc: "Predict football match outcomes, track live scores, challenge your friends in private leagues, and climb the global leaderboards.",
-    image: app2Img,
+    desc:
+      "GoalX is a football app for live scores, match updates, predictions, clans, and friendly competition. Follow matches, make your predictions, earn points, compete with friends, and enjoy football in a more social and entertaining way.",
+    image: goalxImg,
     googlePlayUrl: "https://play.google.com/store/apps/details?id=com.twoarc.goalx",
     appStoreUrl: "",
   },
@@ -113,7 +114,7 @@ export default function Apps() {
           </h1>
 
           <p className="mt-3 text-white/80 text-base md:text-lg leading-relaxed max-w-[620px]">
-            Short-form ranking apps where you record, react, and share your list with friends.
+            Entertainment-first mobile apps made for quick sessions, sharing, and everyday fun.
           </p>
         </div>
       </section>
@@ -121,14 +122,14 @@ export default function Apps() {
       <section className="bg-white">
         <div className="max-w-6xl mx-auto px-4 py-14 space-y-14">
           {APPS.map((app, index) => (
-            <AppRowAnimated
-              key={app.id}
-              app={app}
-              index={index}
-              googlePlayBadge={googlePlayBadge}
-              appStoreBadge={appStoreBadge}
-            />
-          ))}
+          <AppRowAnimated
+            key={app.id}
+            app={app}
+            reverse={index % 2 === 1}
+            googlePlayBadge={googlePlayBadge}
+            appStoreBadge={appStoreBadge}
+          />
+        ))}
         </div>
       </section>
 
@@ -137,43 +138,36 @@ export default function Apps() {
   );
 }
 
-function AppRowAnimated({ app, index, googlePlayBadge, appStoreBadge }) {
+function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
   const [rowRef, rowVisible] = useRevealOnScroll({ threshold: 0.2 });
-  const isReverse = index % 2 === 1;
 
   return (
-    <div ref={rowRef} className="overflow-hidden">
+    <div ref={rowRef} id={app.id} className="overflow-hidden scroll-mt-24">
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div
           className={[
             "flex justify-center",
-            isReverse ? "md:order-last" : "",
             "transition-all duration-1200 ease-out will-change-transform",
             rowVisible
               ? "translate-x-0 opacity-100"
-              : isReverse 
-                ? "translate-x-6 opacity-0 md:translate-x-64"
-                : "-translate-x-6 opacity-0 md:-translate-x-64",
+              : "-translate-x-6 opacity-0 md:-translate-x-64",
           ].join(" ")}
         >
           <div className="rounded-[72px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
             <img
               src={app.image}
               alt={app.name}
-              className="w-full max-w-[260px] sm:max-w-[320px] md:w-[420px] md:max-w-full object-cover block"
+              className="w-full max-w-[221px] sm:max-w-[272px] md:w-[357px] md:max-w-full object-cover block"
             />
           </div>
         </div>
 
         <div
           className={[
-            isReverse ? "md:order-first" : "",
             "transition-all duration-1200 ease-out delay-200 will-change-transform",
             rowVisible
               ? "translate-x-0 opacity-100"
-              : isReverse
-                ? "-translate-x-6 opacity-0 md:-translate-x-64"
-                : "translate-x-6 opacity-0 md:translate-x-64",
+              : "translate-x-6 opacity-0 md:translate-x-64",
           ].join(" ")}
         >
           <h2 className="text-2xl md:text-4xl font-black tracking-tight text-slate-900">
@@ -185,7 +179,7 @@ function AppRowAnimated({ app, index, googlePlayBadge, appStoreBadge }) {
           </p>
 
           <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
-            {app.googlePlayUrl ? (
+            {app.googlePlayUrl && (
               <a
                 href={app.googlePlayUrl}
                 target="_blank"
@@ -194,13 +188,13 @@ function AppRowAnimated({ app, index, googlePlayBadge, appStoreBadge }) {
               >
                 <img
                   src={googlePlayBadge}
-                  alt="Download on Google Play"
+                  alt="Get it on Google Play"
                   className="h-12 md:h-16"
                 />
               </a>
-            ) : null}
+            )}
 
-            {app.appStoreUrl ? (
+            {app.appStoreUrl && (
               <a
                 href={app.appStoreUrl}
                 target="_blank"
@@ -213,19 +207,6 @@ function AppRowAnimated({ app, index, googlePlayBadge, appStoreBadge }) {
                   className="h-12 md:h-16"
                 />
               </a>
-            ) : (
-              <div className="relative inline-block opacity-60 cursor-not-allowed group">
-                <img
-                  src={appStoreBadge}
-                  alt="Coming Soon on the App Store"
-                  className="h-12 md:h-16 grayscale"
-                />
-                <div className="absolute inset-0 rounded-lg bg-black/40 flex items-center justify-center">
-                  <span className="text-[11px] font-bold text-white px-2 py-1 leading-none tracking-wider whitespace-nowrap drop-shadow-md">
-                    SOON
-                  </span>
-                </div>
-              </div>
             )}
           </div>
         </div>
