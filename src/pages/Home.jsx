@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import heroImg from "../assets/home_hero.webp";
 import appsImg from "../assets/app_icon.png";
+import goalxImg from "../assets/goalx.png";
 import aboutLogo from "../assets/logo_2Arc.png";
 
 import ContactSection from "../components/ContactSection";
@@ -49,6 +50,16 @@ export default function Home() {
 
   const [appsRef, appsVisible] = useRevealOnScroll({ threshold: 0.25 });
   const [aboutRef, aboutVisible] = useRevealOnScroll({ threshold: 0.25 });
+
+  const appImages = useMemo(() => [appsImg, goalxImg], []);
+  const [currentAppIndex, setCurrentAppIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentAppIndex((prev) => (prev + 1) % appImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [appImages.length]);
 
   return (
     <div className="bg-white">
@@ -116,8 +127,17 @@ export default function Home() {
                 : "-translate-x-6 opacity-0 md:-translate-x-64",
             ].join(" ")}
           >
-            <div className="w-full max-w-[260px] sm:max-w-[320px] md:w-[420px] md:max-w-full rounded-[64px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
-              <img src={appsImg} alt="Apps showcase" className="w-full h-auto block" />
+            <div className="relative w-full max-w-[260px] sm:max-w-[320px] md:w-[420px] rounded-[64px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)] aspect-square bg-slate-100">
+              {appImages.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt={`App showcase ${idx + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+                    idx === currentAppIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
             </div>
           </div>
 
@@ -134,7 +154,7 @@ export default function Home() {
             </h2>
 
             <p className="mt-3 text-lg md:mt-4 md:text-2xl text-orange-600 font-black">
-              Our first release is out — Download now and enjoy quick, fun moments anytime!
+              Our latest apps are out — Download now and enjoy quick, fun moments anytime!
             </p>
 
             <p className="mt-4 md:mt-5 text-slate-600 leading-relaxed text-sm md:text-base">

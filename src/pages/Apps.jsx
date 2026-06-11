@@ -5,6 +5,7 @@ import ContactSection from "../components/ContactSection";
 
 import heroImg from "../assets/apps-hero.webp";
 import app1Img from "../assets/app_icon.png";
+import app2Img from "../assets/goalx.png";
 
 import googlePlayBadge from "../assets/google-play-badge.png";
 import appStoreBadge from "../assets/app-store-badge.png";
@@ -51,6 +52,14 @@ const APPS = [
     image: app1Img,
     googlePlayUrl: "https://play.google.com/store/apps/details?id=com.twoarc.rankingfilterfunchallenge",
     appStoreUrl: "https://apps.apple.com/tr/app/ranking-filter-fun-challenge/id6757232644",
+  },
+  {
+    id: "app-2",
+    name: "GoalX: Football Prediction",
+    desc: "Predict football match outcomes, track live scores, challenge your friends in private leagues, and climb the global leaderboards.",
+    image: app2Img,
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.twoarc.goalx",
+    appStoreUrl: "",
   },
 ];
 
@@ -111,10 +120,11 @@ export default function Apps() {
 
       <section className="bg-white">
         <div className="max-w-6xl mx-auto px-4 py-14 space-y-14">
-          {APPS.map((app) => (
+          {APPS.map((app, index) => (
             <AppRowAnimated
               key={app.id}
               app={app}
+              index={index}
               googlePlayBadge={googlePlayBadge}
               appStoreBadge={appStoreBadge}
             />
@@ -127,8 +137,9 @@ export default function Apps() {
   );
 }
 
-function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
+function AppRowAnimated({ app, index, googlePlayBadge, appStoreBadge }) {
   const [rowRef, rowVisible] = useRevealOnScroll({ threshold: 0.2 });
+  const isReverse = index % 2 === 1;
 
   return (
     <div ref={rowRef} className="overflow-hidden">
@@ -136,10 +147,13 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
         <div
           className={[
             "flex justify-center",
+            isReverse ? "md:order-last" : "",
             "transition-all duration-1200 ease-out will-change-transform",
             rowVisible
               ? "translate-x-0 opacity-100"
-              : "-translate-x-6 opacity-0 md:-translate-x-64",
+              : isReverse 
+                ? "translate-x-6 opacity-0 md:translate-x-64"
+                : "-translate-x-6 opacity-0 md:-translate-x-64",
           ].join(" ")}
         >
           <div className="rounded-[72px] sm:rounded-[96px] md:rounded-[120px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)]">
@@ -153,10 +167,13 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
 
         <div
           className={[
+            isReverse ? "md:order-first" : "",
             "transition-all duration-1200 ease-out delay-200 will-change-transform",
             rowVisible
               ? "translate-x-0 opacity-100"
-              : "translate-x-6 opacity-0 md:translate-x-64",
+              : isReverse
+                ? "-translate-x-6 opacity-0 md:-translate-x-64"
+                : "translate-x-6 opacity-0 md:translate-x-64",
           ].join(" ")}
         >
           <h2 className="text-2xl md:text-4xl font-black tracking-tight text-slate-900">
@@ -168,31 +185,48 @@ function AppRowAnimated({ app, googlePlayBadge, appStoreBadge }) {
           </p>
 
           <div className="mt-6 md:mt-8 flex gap-5 flex-wrap items-center">
-            <a
-              href={app.googlePlayUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block transition-transform hover:scale-105"
-            >
-              <img
-                src={googlePlayBadge}
-                alt="Download on Google Play"
-                className="h-12 md:h-16"
-              />
-            </a>
+            {app.googlePlayUrl ? (
+              <a
+                href={app.googlePlayUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105"
+              >
+                <img
+                  src={googlePlayBadge}
+                  alt="Download on Google Play"
+                  className="h-12 md:h-16"
+                />
+              </a>
+            ) : null}
 
-            <a
-              href={app.appStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block transition-transform hover:scale-105"
-            >
-              <img
-                src={appStoreBadge}
-                alt="Download on the App Store"
-                className="h-12 md:h-16"
-              />
-            </a>
+            {app.appStoreUrl ? (
+              <a
+                href={app.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105"
+              >
+                <img
+                  src={appStoreBadge}
+                  alt="Download on the App Store"
+                  className="h-12 md:h-16"
+                />
+              </a>
+            ) : (
+              <div className="relative inline-block opacity-60 cursor-not-allowed group">
+                <img
+                  src={appStoreBadge}
+                  alt="Coming Soon on the App Store"
+                  className="h-12 md:h-16 grayscale"
+                />
+                <div className="absolute inset-0 rounded-lg bg-black/40 flex items-center justify-center">
+                  <span className="text-[11px] font-bold text-white px-2 py-1 leading-none tracking-wider whitespace-nowrap drop-shadow-md">
+                    SOON
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
