@@ -1,106 +1,504 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width'>
-    <title>Privacy Policy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Privacy Policy — Ranking Filter: Fun Challenge</title>
+
     <style>
+      :root {
+        --text: #202124;
+        --muted: #5f6368;
+        --border: #e7e7e7;
+        --surface: #f8f9fa;
+        --accent: #ff7a18;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        padding: 1em;
+        margin: 0;
+        background: #ffffff;
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      main {
+        width: min(860px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 42px 0 56px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.25;
+        color: #171717;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(28px, 5vw, 38px);
+      }
+
+      h2 {
+        margin: 34px 0 10px;
+        font-size: 22px;
+      }
+
+      h3 {
+        margin: 20px 0 8px;
+        font-size: 18px;
+      }
+
+      p {
+        margin: 0 0 14px;
+      }
+
+      ul {
+        margin: 0 0 16px;
+        padding-left: 22px;
+      }
+
+      li {
+        margin: 7px 0;
+      }
+
+      a {
+        color: #b94f00;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+
+      .meta {
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      .notice {
+        background: linear-gradient(135deg, #fff4df, #fff9f0);
+        border: 1px solid #ffe0b5;
+        border-left: 4px solid var(--accent);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 24px 0;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 18px;
+        margin: 16px 0;
+      }
+
+      .small {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 14px;
       }
     </style>
   </head>
-  <body>
-    <strong>Privacy Policy</strong>
-    <p>This privacy policy applies to the Ranking Filter: Fun Challenge app (hereby referred to as "Application") for mobile devices that was created by 2Arc (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".</p>
-    <br>
-    <strong>Information Collection and Use</strong>
-    <p>The Application collects information when you download and use it. This information may include information such as </p>
-    <ul>
-      <li>Your device's Internet Protocol address (e.g. IP address)</li>
-      <li>The pages of the Application that you visit, the time and date of your visit, the time spent on those pages</li>
-      <li>The time spent on the Application</li>
-      <li>The operating system you use on your mobile device</li>
-    </ul>
-    <p></p>
-    <br>
-    <p>The Application does not gather precise information about the location of your mobile device.</p>
-    <div style="display: none;">
-      <p>The Application collects your device's location, which helps the Service Provider determine your approximate geographical location and make use of in below ways:</p>
-      <ul>
-        <li>Geolocation Services: The Service Provider utilizes location data to provide features such as personalized content, relevant recommendations, and location-based services.</li>
-        <li>Analytics and Improvements: Aggregated and anonymized location data helps the Service Provider to analyze user behavior, identify trends, and improve the overall performance and functionality of the Application.</li>
-        <li>Third-Party Services: Periodically, the Service Provider may transmit anonymized location data to external services. These services assist them in enhancing the Application and optimizing their offerings.</li>
-      </ul>
-    </div>
-    <br>
-    <p>
-        The Application does not require users to create an account and does not request or collect
-        personally identifiable information such as name, email address, or phone number.
-    </p>
 
-    <br>
-    <strong>Third Party Access</strong>
-    <p>Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p>
-    <div>
-      <br>
-      <p>Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links to the Privacy Policy of the third-party service providers used by the Application:</p>
+  <body>
+    <main>
+      <h1>Privacy Policy</h1>
+
+      <p class="meta">
+        <strong>Ranking Filter: Fun Challenge</strong><br />
+        Last updated: July 1, 2026
+      </p>
+
+      <p>
+        This Privacy Policy explains how 2Arc ("2Arc," "we," "us," or "our")
+        handles information in the Ranking Filter: Fun Challenge mobile
+        application (the "Application").
+      </p>
+
+      <p>
+        The Application is provided as a free entertainment application. It
+        allows users to create ranking-style videos using camera features,
+        visual effects, and filter content.
+      </p>
+
+      <div class="notice">
+        <strong>Summary:</strong> We do not require accounts and do not ask you
+        to provide your name, email address, phone number, or similar direct
+        profile information. However, the Application uses Google AdMob and
+        Firebase Analytics, which may process certain device, identifier,
+        advertising, diagnostic, and app-usage information as described below.
+      </div>
+
+      <h2>1. Information We Process</h2>
+
+      <h3>1.1 Information you do not provide to us</h3>
+
+      <p>
+        The Application does not require user registration. We do not ask you
+        to create an account or directly provide your name, email address,
+        phone number, postal address, password, or payment information.
+      </p>
+
+      <h3>1.2 Camera, microphone, and video content</h3>
+
+      <p>
+        The Application may request access to your device camera and microphone
+        to enable recording features. It may also request access to photos,
+        videos, or media storage when you choose to save an output video to your
+        device gallery.
+      </p>
+
+      <p>
+        Videos created in the Application, including the related visual effects
+        processing, are processed locally on your device. We do not upload your
+        raw recordings, processed videos, camera feed, or microphone recordings
+        to 2Arc servers.
+      </p>
+
+      <p>
+        If you choose to save a completed video, it is saved to your device
+        gallery under the controls and permissions of your device operating
+        system. We do not receive a copy of that saved video.
+      </p>
+
+      <p>
+        If you choose to share a completed video using your device's share
+        sheet, the selected third-party application or service may process
+        that video under its own privacy policy. 2Arc does not receive a copy
+        of the video solely because you choose to share it.
+      </p>
+
+      <h3>1.3 On-device face-related processing</h3>
+
+      <p>
+        The Application may use on-device face detection or similar local visual
+        processing to support interactive camera effects. This processing is not
+        used to identify or authenticate you. We do not upload, store, sell, or
+        share facial templates, biometric identifiers, or facial recognition
+        data.
+      </p>
+
+      <h3>1.4 Device, usage, and technical information</h3>
+
+      <p>
+        Through Firebase Analytics, Google Mobile Ads SDK, and related Google
+        services, certain information may be collected or processed
+        automatically. Depending on your device, operating system, app version,
+        region, consent choices, and the advertising or analytics features in
+        use, this may include:
+      </p>
+
       <ul>
+        <li>device type, operating system, language, and app version;</li>
         <li>
-          <a href="https://expo.io/privacy" target="_blank" rel="noopener noreferrer">Expo</a>
+          device and app identifiers, including advertising identifiers where
+          available;
+        </li>
+        <li>
+          Internet Protocol (IP) address and network-related information;
+        </li>
+        <li>
+          approximate location inferred from IP address or device/network
+          signals;
+        </li>
+        <li>
+          app interactions and usage information, such as app opens, sessions,
+          filter selections, completed filters, share-button taps, and
+          navigation-related events;
+        </li>
+        <li>
+          advertising information, including ad requests, impressions, ad
+          performance, and interactions with advertisements;
+        </li>
+        <li>
+          diagnostic information related to application and SDK performance,
+          such as app launch time, responsiveness, and energy usage.
         </li>
       </ul>
-    </div>
-    <br>
-    <p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
-    <ul>
-      <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
-      <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
-      <li>with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
-    </ul>
-    <p></p>
-    <br>
-    <div>
-      <strong>Use of Artificial Intelligence</strong>
-      <p>
-        The Application uses Artificial Intelligence (AI) technologies, such as on-device face detection, 
-        to enable interactive features. AI processing is performed locally on the user's device and no 
-        facial data is stored or shared by the Service Provider.
-        </p>
-      <br>
-    </div>
-    <strong>Opt-Out Rights</strong>
-    <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
-    <br>
-    <strong>Data Retention Policy</strong>
-    <p>
-    The Service Provider does not collect or store personally identifiable user data.
-    Any automatically collected data is retained only for as long as necessary to operate and improve the Application.
-    </p>
 
-    <br>
-    <strong>Children</strong>
-    <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
-    <div>
-      <br>
-      <p>The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. In the case the Service Provider discover that a child under 13 has provided personal information, the Service Provider will immediately delete this from their servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact the Service Provider (twoarc@proton.me) so that they will be able to take the necessary actions.</p>
-    </div>
-    <br>
-    <strong>Security</strong>
-    <p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p>
-    <br>
-    <strong>Changes</strong>
-    <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
-    <br>
-    <p>This privacy policy is effective as of 2025-12-28</p>
-    <br>
-    <strong>Your Consent</strong>
-    <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.</p>
-    <br>
-    <strong>Contact Us</strong>
-    <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at twoarc@proton.me.</p>
-    <hr>
-    <p>This privacy policy page was generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a></p>
+      <p>
+        The Application does not collect precise GPS location information.
+        Third-party services may nevertheless infer an approximate location from
+        your IP address or network information.
+      </p>
+
+      <h2>2. How We Use Information</h2>
+
+      <p>We and our service providers may use information to:</p>
+
+      <ul>
+        <li>operate, maintain, and improve the Application;</li>
+        <li>provide recording, processing, saving, and sharing features;</li>
+        <li>understand general application usage and feature performance;</li>
+        <li>
+          measure events such as filter openings, completed videos, and sharing
+          interactions;
+        </li>
+        <li>serve, measure, limit, personalize, or troubleshoot advertising;</li>
+        <li>
+          detect abuse, fraud, technical problems, and security incidents;
+        </li>
+        <li>comply with legal obligations and enforce our rights.</li>
+      </ul>
+
+      <h2>3. Advertising and Google AdMob</h2>
+
+      <p>
+        The Application uses Google AdMob to display advertisements, including
+        banner advertisements and interstitial advertisements. Google AdMob and
+        its advertising partners may process device information, advertising
+        identifiers, IP address, app activity, ad interaction information, and
+        other data needed to deliver, measure, secure, and improve advertising.
+      </p>
+
+      <p>
+        Depending on your region and privacy choices, advertisements may be
+        personalized, non-personalized, limited, or otherwise configured in
+        accordance with Google’s available advertising products and applicable
+        requirements.
+      </p>
+
+      <p>
+        We use Google’s User Messaging Platform ("UMP") to request and manage
+        advertising privacy choices where required by applicable law. For
+        example, users in the European Economic Area, the United Kingdom, and
+        Switzerland may be shown a consent message that allows them to consent,
+        refuse consent, or manage available privacy choices.
+      </p>
+
+      <p>
+        Where the Application displays a <strong>Privacy Choices</strong> or
+        similarly named setting, you may use it to revisit the available
+        advertising privacy choices. Your device operating system may also offer
+        separate controls for advertising identifiers and ad personalization.
+      </p>
+
+      <h2>4. Firebase Analytics</h2>
+
+      <p>
+        The Application uses Google Firebase Analytics to understand how the
+        Application is used and to improve features, stability, and user
+        experience. Firebase Analytics may automatically collect certain app
+        usage and device information and may also receive custom events defined
+        by us, such as filter-open, filter-completion, share, or promotional
+        interaction events.
+      </p>
+
+      <p>
+        We use analytics data in aggregated or event-based form to understand
+        overall product usage. We do not use Firebase Analytics to create user
+        accounts in the Application or ask you to provide direct profile
+        information.
+      </p>
+
+      <h2>5. Static Content Delivery</h2>
+
+      <p>
+        Some static Application content, such as filter images and other media
+        assets, may be delivered through Cloudflare services. In delivering and
+        securing these assets, Cloudflare may process network-related
+        information, such as IP address and request logs, in accordance with its
+        own privacy practices.
+      </p>
+
+      <p>
+        We do not use Cloudflare to upload or store your recorded videos,
+        camera feed, microphone recordings, facial templates, or account data.
+      </p>
+
+      <h2>6. Third-Party Service Providers</h2>
+
+      <p>
+        The Application uses third-party services that may process information
+        under their own privacy policies and terms. These services include:
+      </p>
+
+      <ul>
+        <li>
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Privacy Policy
+          </a>
+          — including services related to Google AdMob and Google Firebase.
+        </li>
+
+        <li>
+          <a
+            href="https://firebase.google.com/support/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Firebase Privacy and Security Information
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://developers.google.com/admob/android/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google User Messaging Platform and AdMob Privacy Information
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.cloudflare.com/privacypolicy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cloudflare Privacy Policy
+          </a>
+        </li>
+      </ul>
+
+      <p>
+        We may also disclose information where required by law, to respond to
+        valid legal requests, to protect our rights and users, to investigate
+        fraud or abuse, or in connection with a business reorganization,
+        acquisition, or transfer of assets.
+      </p>
+
+      <h2>7. Data Retention</h2>
+
+      <p>
+        We do not retain your recorded videos, processed videos, camera feed,
+        microphone recordings, or facial data on our servers.
+      </p>
+
+      <p>
+        Information processed by Google AdMob, Firebase Analytics, Cloudflare,
+        or other third-party providers may be retained according to their
+        applicable policies, service configurations, legal obligations, fraud
+        prevention needs, and data retention practices.
+      </p>
+
+      <p>
+        We retain any information within our control only for as long as
+        reasonably necessary for the purposes described in this Privacy Policy,
+        unless a longer retention period is required or permitted by law.
+      </p>
+
+      <h2>8. Your Choices and Privacy Rights</h2>
+
+      <p>
+        Depending on where you live, you may have rights to request access to,
+        correction of, deletion of, restriction of, or objection to certain
+        processing of personal data. You may also have the right to withdraw
+        consent where processing is based on consent.
+      </p>
+
+      <p>You can take the following actions:</p>
+
+      <ul>
+        <li>
+          use the Application’s available privacy settings to revisit ad privacy
+          choices where offered;
+        </li>
+        <li>
+          manage advertising identifier and ad personalization settings through
+          your device operating system;
+        </li>
+        <li>
+          revoke camera, microphone, or media permissions through your device
+          settings;
+        </li>
+        <li>
+          uninstall the Application to stop further data collection by the
+          Application;
+        </li>
+        <li>
+          contact us using the email address below for privacy-related requests.
+        </li>
+      </ul>
+
+      <p>
+        Some data handled by Google, Cloudflare, or other independent providers
+        may need to be managed directly through those providers under their own
+        policies and controls.
+      </p>
+
+      <h2>9. International Data Transfers</h2>
+
+      <p>
+        Our service providers, including Google and Cloudflare, may process
+        information in countries other than the country where you live. Those
+        countries may have data-protection laws that differ from the laws in
+        your jurisdiction. Where applicable, these providers apply their own
+        contractual, technical, organizational, and legal safeguards for
+        international data transfers.
+      </p>
+
+      <h2>10. Security</h2>
+
+      <p>
+        We use reasonable technical and organizational measures designed to
+        protect information under our control. However, no method of electronic
+        transmission, storage, or processing is completely secure, and we
+        cannot guarantee absolute security.
+      </p>
+
+      <h2>11. Children’s Privacy</h2>
+
+      <p>
+        The Application is not directed to children under the age of 13. We do
+        not knowingly collect personal information directly from children under
+        13.
+      </p>
+
+      <p>
+        If you are a parent or guardian and believe that a child under 13 has
+        provided personal information directly to us, please contact us at the
+        email address below. We will review the request and take appropriate
+        action.
+      </p>
+
+      <h2>12. Changes to This Privacy Policy</h2>
+
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes
+        to the Application, our data practices, legal requirements, or
+        third-party services. We will post the updated version on this page and
+        update the “Last updated” date above.
+      </p>
+
+      <h2>13. Contact Us</h2>
+
+      <p>
+        If you have questions, concerns, or requests about this Privacy Policy
+        or privacy practices related to the Application, please contact:
+      </p>
+
+      <div class="card">
+        <p><strong>2Arc</strong></p>
+        <p>
+          Email:
+          <a href="mailto:twoarc@proton.me">twoarc@proton.me</a>
+        </p>
+      </div>
+
+      <footer>
+        This Privacy Policy applies to Ranking Filter: Fun Challenge and does
+        not replace the privacy notices of independent third-party services.
+      </footer>
+    </main>
   </body>
 </html>
