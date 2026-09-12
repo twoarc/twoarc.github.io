@@ -61,7 +61,7 @@
 <p>If you would rather your messages were not processed this way, do not post in public clubs that contain automated accounts. No other feature of the Application uses artificial intelligence to process your data.</p>
 
 <h2>5. Push notifications</h2>
-<p>If you allow notifications, your device issues a notification token that we store with your profile and use to send goal alerts, match reminders, club chat alerts and occasional service messages. Delivery goes through the <strong>Expo</strong> push service and from there to Apple (APNs) or Google (FCM). You can withdraw this permission at any time in your device settings, and the stored token is removed when you delete your account.</p>
+<p>If you allow notifications, your device issues a notification token that we store with your profile and use to send goal alerts, match reminders, club chat alerts and occasional service messages. Delivery goes through the <strong>Expo</strong> push service and from there to Apple's Push Notification service on iOS, or to <strong>Firebase Cloud Messaging</strong> on Android. You can withdraw this permission at any time in your device settings, and the stored token is removed when you delete your account.</p>
 
 <h2>6. Advertising</h2>
 <p>The Application displays advertising supplied by <strong>Google AdMob</strong>. Subscribers to GoalX Premium do not see advertising.</p>
@@ -72,6 +72,7 @@
   <li>On Android you can reset or delete your Advertising ID in your device settings.</li>
 </ul>
 <p>Where personalised advertising is enabled, your advertising identifier and related ad interaction data are shared with Google and its advertising partners. Under certain laws, including the California Consumer Privacy Act, this may qualify as "sharing" or a "sale" of personal information for targeted advertising. Declining tracking, or withdrawing consent through Privacy Choices, opts you out.</p>
+<p>On Android, Google's Mobile Ads SDK also includes Google's advertising measurement component, which reports whether an advertisement was shown or interacted with. On iOS no such component is included.</p>
 <p>If you see an advertisement that is inappropriate or not suitable for your age, you can report it from <em>Settings &rarr; Report an Ad</em>.</p>
 
 <h2>7. Subscriptions and purchases</h2>
@@ -84,7 +85,7 @@
   <li><a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer">PostHog</a> &mdash; product analytics (European Union)</li>
   <li><a href="https://expo.io/privacy" target="_blank" rel="noopener noreferrer">Expo</a> &mdash; application delivery, updates and push notifications</li>
   <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank" rel="noopener noreferrer">Google AdMob</a> &mdash; advertising</li>
-  <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> &mdash; Play services, Gemini API, Sign-In and Firebase Cloud Messaging</li>
+  <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> &mdash; Sign-In, the Gemini API (see section 4), Google Play services, and Firebase Cloud Messaging for push delivery on Android. The Application uses no other Firebase product and includes no Firebase software on iOS.</li>
   <li><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat</a> &mdash; subscription management</li>
   <li><a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener noreferrer">Apple</a> &mdash; Sign in with Apple, App Store billing and push delivery</li>
   <li><a href="https://www.facebook.com/about/privacy/" target="_blank" rel="noopener noreferrer">Meta / Facebook</a> &mdash; Facebook Login only</li>
