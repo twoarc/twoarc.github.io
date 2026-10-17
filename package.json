@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "check:app-config": "node scripts/check-app-config.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",

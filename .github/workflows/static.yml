@@ -38,6 +38,10 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
+      # Uygulamaların app gate dosyaları (public/<uygulama>/*.json): bozuk ya da
+      # yanlış yazılmış bir dosya yayına çıkmaz. APP-CONFIG.md
+      - name: Check app configs
+        run: npm run check:app-config
       - name: Build
         run: npm run build
       - name: Setup Pages
