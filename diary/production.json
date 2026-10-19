@@ -1,0 +1,15 @@
+{
+  "default": {
+    "minimumVersion": "1.0.0",
+    "latestVersion": "1.0.0",
+    "updateUrl": null,
+    "updateMessage": null,
+    "maintenance": false,
+    "maintenanceMessage": null,
+    "maintenanceUntil": null
+  },
+  "ios": {
+    "minimumVersion": "2.0.0"
+  },
+  "android": {}
+}
