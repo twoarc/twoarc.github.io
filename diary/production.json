@@ -4,13 +4,10 @@
     "latestVersion": "1.0.0",
     "updateUrl": null,
     "updateMessage": null,
-    "maintenance": true,
+    "maintenance": false,
     "maintenanceMessage": null,
     "maintenanceUntil": null
   },
-  "ios": {
-    "minimumVersion": "1.0.0",
-    "latestVersion": "2.0.0"
-  },
+  "ios": {},
   "android": {}
 }
