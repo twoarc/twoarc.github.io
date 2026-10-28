@@ -1,7 +1,7 @@
 {
   "default": {
-    "minimumVersion": "1.0.0",
-    "latestVersion": "1.0.0",
+    "minimumVersion": "2.0.0",
+    "latestVersion": "2.0.0",
     "updateUrl": null,
     "updateMessage": null,
     "maintenance": false,
