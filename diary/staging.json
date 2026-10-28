@@ -9,5 +9,5 @@
     "maintenanceUntil": null
   },
   "ios": {},
-  "android": {}
+  "android": {"minimumVersion": "2.0.0"}
 }
