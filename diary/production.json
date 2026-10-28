@@ -4,8 +4,8 @@
     "latestVersion": "1.0.0",
     "updateUrl": null,
     "updateMessage": null,
-    "maintenance": false,
-    "maintenanceMessage": null,
+    "maintenance": true,
+    "maintenanceMessage": "Test Message",
     "maintenanceUntil": null
   },
   "ios": {},
