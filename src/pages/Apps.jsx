@@ -5,7 +5,8 @@ import ContactSection from "../components/ContactSection";
 
 import heroImg from "../assets/apps-hero.webp";
 import app1Img from "../assets/app_icon.png";
-import goalxImg from "../assets/goalx_icon.png";
+import goalxImg from "../assets/goalx_icon.webp";
+import diaryImg from "../assets/diary_icon.webp";
 
 import googlePlayBadge from "../assets/google-play-badge.png";
 import appStoreBadge from "../assets/app-store-badge.png";
@@ -55,12 +56,21 @@ const APPS = [
   },
   {
     id: "goalx",
-    name: "GoalX: Football Prediction",
+    name: "GoalX: 2026 Football Scores",
     desc:
       "GoalX is a football app for live scores, match updates, predictions, clans, and friendly competition. Follow matches, make your predictions, earn points, compete with friends, and enjoy football in a more social and entertaining way.",
     image: goalxImg,
     googlePlayUrl: "https://play.google.com/store/apps/details?id=com.twoarc.goalx",
-    appStoreUrl: "",
+    appStoreUrl: "https://apps.apple.com/tr/app/goalx-2026-football-scores/id6788750448?l=tr",
+  },
+  {
+    id: "my-diary",
+    name: "My Diary: Secret Journal, Lock",
+    desc:
+      "My Diary is a private journal protected by a PIN. Write your day, add moods, photos, voice notes, and stickers, set reminders, and keep your streak going. There is no account to create, and your diary stays on your device.",
+    image: diaryImg,
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.twoarc.diary",
+    appStoreUrl: "https://apps.apple.com/tr/app/my-diary-kilitli-g%C3%BCnl%C3%BCk/id6820505323?l=tr",
   },
 ];
 

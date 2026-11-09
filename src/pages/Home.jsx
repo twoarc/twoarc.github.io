@@ -3,7 +3,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import heroImg from "../assets/home_hero.webp";
 import rankingImg from "../assets/app_icon.png";
-import goalxImg from "../assets/goalx_icon.png";
+import goalxImg from "../assets/goalx_icon.webp";
+import diaryImg from "../assets/diary_icon.webp";
 import aboutLogo from "../assets/logo_2Arc.png";
 
 import ContactSection from "../components/ContactSection";
@@ -123,7 +124,7 @@ export default function Home() {
             ].join(" ")}
           >
             <div className="relative w-[300px] h-[260px] sm:w-[380px] sm:h-[320px] md:w-[460px] md:h-[380px]">
-              <div className="absolute left-0 top-10 w-[180px] sm:w-[230px] md:w-[280px] rounded-[52px] sm:rounded-[68px] md:rounded-[84px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)] rotate-[-8deg]">
+              <div className="absolute left-0 top-4 w-[150px] sm:w-[190px] md:w-[230px] rounded-[44px] sm:rounded-[56px] md:rounded-[68px] overflow-hidden shadow-[0_18px_50px_rgba(15,23,42,0.18)] rotate-[-8deg]">
                 <img
                   src={rankingImg}
                   alt="Ranking Filters app"
@@ -131,10 +132,18 @@ export default function Home() {
                 />
               </div>
 
-              <div className="absolute right-0 top-0 w-[190px] sm:w-[245px] md:w-[300px] rounded-[56px] sm:rounded-[72px] md:rounded-[90px] overflow-hidden shadow-[0_22px_60px_rgba(15,23,42,0.22)] rotate-[7deg]">
+              <div className="absolute right-0 top-0 w-[150px] sm:w-[190px] md:w-[230px] rounded-[44px] sm:rounded-[56px] md:rounded-[68px] overflow-hidden shadow-[0_22px_60px_rgba(15,23,42,0.22)] rotate-[7deg]">
                 <img
                   src={goalxImg}
                   alt="GoalX app"
+                  className="w-full h-auto block"
+                />
+              </div>
+
+              <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[150px] sm:w-[190px] md:w-[230px] rounded-[44px] sm:rounded-[56px] md:rounded-[68px] overflow-hidden shadow-[0_26px_70px_rgba(15,23,42,0.28)]">
+                <img
+                  src={diaryImg}
+                  alt="My Diary app"
                   className="w-full h-auto block"
                 />
               </div>
