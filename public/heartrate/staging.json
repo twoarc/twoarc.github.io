@@ -4,7 +4,7 @@
     "latestVersion": "1.0.0",
     "updateUrl": null,
     "updateMessage": null,
-    "maintenance": false,
+    "maintenance": true,
     "maintenanceMessage": null,
     "maintenanceUntil": null
   },
