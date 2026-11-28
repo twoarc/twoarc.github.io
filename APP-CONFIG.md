@@ -7,6 +7,7 @@ Uygulama yalnız kendi dosyasını okur; birinde yapılan hata diğerlerine doku
 | Uygulama | Klasör | production (mağaza sürümleri) | staging (development, preview) |
 |---|---|---|---|
 | My Diary | `public/diary/` | https://twoarc.github.io/diary/production.json | https://twoarc.github.io/diary/staging.json |
+| Pulsio (Heart Rate) | `public/heartrate/` | https://twoarc.github.io/heartrate/production.json | https://twoarc.github.io/heartrate/staging.json |
 
 Okuyan kod uygulamanın kendi reposunda (`src/services/app-gate/`,
 `src/data/remote/app-config.ts`); belge `docs/integrations/app-gate.md`.
